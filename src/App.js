@@ -35,29 +35,35 @@ function App() {
     setViewSales(!viewSales);
   };
 
-  return (
-    <ThemeProvider theme={theme}>
-      <Container maxWidth="lg">
-        <img src='/BIANCO.png' alt='logo'/>
-        <Typography variant="h2" gutterBottom align="center" style={{ marginTop: '20px' }}>
-          BULLISH BAR SALES TRACKER
-        </Typography>
-        <Button variant="contained" color="secondary" onClick={toggleView}>
-          {viewSales ? 'Back to Sales Tracker' : 'View Sales Data'}
-        </Button>
-        {viewSales ? (
-          <SalesData onBack={toggleView} />
-        ) : (
-          <Grid container spacing={3}>
-            {drinks.map((drink) => (
-              <Grid item xs={12} sm={6} md={4} lg={3} key={drink}>
-                <DrinkButton drink={drink} onClick={handleButtonClick} />
-              </Grid>
-            ))}
+    return (
+      <ThemeProvider theme={theme}>
+        <Container maxWidth="lg">
+          <Grid container alignItems="center" justifyContent="center" spacing={2} style={{ marginTop: '20px' }}>
+            <Grid item>
+              <img src='/BIANCO.png' alt='logo' style={{ height: '80px' }} />
+            </Grid>
+            <Grid item>
+              <Typography variant="h2" gutterBottom align="center">
+                BULLISH BAR SALES TRACKER
+              </Typography>
+            </Grid>
           </Grid>
-        )}
-      </Container>
-    </ThemeProvider>
+          <Button variant="contained" color="secondary" onClick={toggleView}>
+            {viewSales ? 'Back to Sales Tracker' : 'View Sales Data'}
+          </Button>
+          {viewSales ? (
+            <SalesData onBack={toggleView} />
+          ) : (
+            <Grid container spacing={3}>
+              {drinks.map((drink) => (
+                <Grid item xs={12} sm={6} md={4} lg={3} key={drink}>
+                  <DrinkButton drink={drink} onClick={handleButtonClick} />
+                </Grid>
+              ))}
+            </Grid>
+          )}
+        </Container>
+      </ThemeProvider>
   );
 }
 
