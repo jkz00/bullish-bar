@@ -7,7 +7,7 @@ const path = require('path');
 require('dotenv').config();
 
 const app = express();
-const db = new sqlite3.Database(process.env.DATABASE_URL);
+const db = new sqlite3.Database(process.env.DATABASE_URL || path.resolve(__dirname, 'db.sqlite'));
 
 app.use(cors());
 app.use(bodyParser.json());

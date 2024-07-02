@@ -38,16 +38,10 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <Container maxWidth="lg">
-        <Grid container alignItems="center" justifyContent="center" spacing={2} style={{ marginTop: '20px' }}>
-          <Grid item>
-            <img src='/BIANCO.png' alt='logo' style={{ height: '80px' }} />
-          </Grid>
-          <Grid item>
-            <Typography variant="h2" gutterBottom align="center">
-              BULLISH BAR SALES TRACKER
-            </Typography>
-          </Grid>
-        </Grid>
+        <img src='/BIANCO.png' alt='logo'/>
+        <Typography variant="h2" gutterBottom align="center" style={{ marginTop: '20px' }}>
+          BULLISH BAR SALES TRACKER
+        </Typography>
         <Button variant="contained" color="secondary" onClick={toggleView}>
           {viewSales ? 'Back to Sales Tracker' : 'View Sales Data'}
         </Button>
